@@ -8,12 +8,13 @@ This is a work in progress, for instance data is not stored on persistant volume
 
 To build the Docker images:
 
-    ./build.sh
+    ./build.sh [suffix]
 
 To run the Docker images
 
-    ./run.sh
+    ./run.sh [suffix]
 
 To delete the runtime images
 
-    ./cleanup.sh
+    ./cleanup.sh [suffix]
+

@@ -1,4 +1,4 @@
-FROM manics/omero-grid-omero
+FROM manics/omero-grid-omero%SUFFIX%
 MAINTAINER Simon Li "spli@dundee.ac.uk"
 
 ADD config/default.xml /home/omero/OMERO.server/etc/grid/
