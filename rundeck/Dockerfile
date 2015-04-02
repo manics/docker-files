@@ -11,8 +11,11 @@ RUN yum -y install java-1.7.0-openjdk && \
 
 ADD run.sh /
 
-#USER rundeck
+USER rundeck
 
 VOLUME /config
+VOLUME ["/var/rundeck", "/var/lib/rundeck", "/var/log/rundeck"]
+
 EXPOSE 4440 4443
-CMD runuser -s /bin/bash -l rundeck -c /run.sh
+
+CMD /run.sh
