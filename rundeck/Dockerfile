@@ -26,7 +26,10 @@ RUN sed -i \
 	-e 's|/var/lib/rundeck/.ssh/id_rsa|/rundeck/ssh/id_rsa|' \
 	/etc/rundeck/profile \
 	/etc/rundeck/framework.properties && \
-	sed -i -re 's|#(.*-Drundeck.ssl.config)|\1|' /etc/rundeck/profile
+	sed -i -re 's|#(.*-Drundeck.ssl.config)|\1|' /etc/rundeck/profile && \
+	sed -i -re 's|(grails.serverURL=).*|\1https://localhost:4443|' \
+	/etc/rundeck/rundeck-config.properties
+
 
 RUN keytool -keystore /etc/rundeck/ssl/keystore -alias rundeck -genkey \
 	-keyalg RSA -keypass adminadmin -storepass adminadmin \
