@@ -6,11 +6,13 @@ RUN useradd cgi
 RUN pip install dnspython
 
 ADD run.sh /
-ADD rundeck-docker-running.py /server/cgi-bin/
+ADD hello.py /server/cgi-bin/hello
 
 USER cgi
 WORKDIR /server
 
+VOLUME /server/cgi-bin
+
 EXPOSE 8080
 ENTRYPOINT ["/bin/bash", "/run.sh"]
-CMD ["8080", "docker.openmicroscopy.org"]
+CMD ["8080"]
