@@ -7,6 +7,7 @@ Build: `docker built -t deepdream .`
 Run: `docker run -it -v $HOME/deepdream:deepdream deepdream`
 Once you have a shell in the container you can run `ipython`
 
+See https://github.com/google/deepdream/blob/master/dream.ipynb for example usage.
 
 Warning
 -------
