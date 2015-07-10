@@ -9,7 +9,7 @@ RUN yum -y install epel-release && \
 	yum -y install protobuf-devel leveldb-devel snappy-devel \
 	opencv-devel boost-devel hdf5-devel \
 	gflags-devel glog-devel lmdb-devel \
-	atlas-devel atlas-static blas-devel blas-static
+	openblas-devel openblas-static
 
 RUN yum -y install python-devel \
 	Cython numpy scipy python-matplotlib ipython h5py \
@@ -27,11 +27,9 @@ RUN mkdir /src && cd /src && \
 
 WORKDIR /src/caffe-master
 RUN sed -r -e 's/# CPU_ONLY .+/CPU_ONLY := 1/' \
-	-e 's|# BLAS_LIB := /path/to/your/blas|BLAS_LIB := /usr/lib64/atlas|' \
-	Makefile.config.example > Makefile.config && \
-	sed -i.bak -re \
-	's/LIBRARIES \+= cblas atlas/LIBRARIES += satlas tatlas atlas/' \
-	Makefile
+	-e 's/BLAS := .+/BLAS := open/' \
+        -e 's|# BLAS_INCLUDE := /path/to/your/blas|BLAS_INCLUDE := /usr/include/openblas|' \
+	Makefile.config.example > Makefile.config
 RUN make all pycaffe && make distribute
 
 
