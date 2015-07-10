@@ -29,7 +29,9 @@ WORKDIR /src/caffe-master
 RUN sed -r -e 's/# CPU_ONLY .+/CPU_ONLY := 1/' \
 	-e 's/BLAS := .+/BLAS := open/' \
         -e 's|# BLAS_INCLUDE := /path/to/your/blas|BLAS_INCLUDE := /usr/include/openblas|' \
-	Makefile.config.example > Makefile.config
+	Makefile.config.example > Makefile.config && \
+	sed -i.bak -re 's/LIBRARIES \+= openblas/LIBRARIES += openblasp/' \
+	Makefile
 RUN make all pycaffe && make distribute
 
 

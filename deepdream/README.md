@@ -2,7 +2,7 @@ deepdream
 =========
 
 This is a Centos 7 image for building [Caffe](http://caffe.berkeleyvision.org/) for use with [deepdream](https://github.com/google/deepdream), including the python module.
-Caffe is linked to [OpenBLAS](http://www.openblas.net/).
+Caffe is linked to multithreaded [OpenBLAS](http://www.openblas.net/), which should be faster than ATLAS.
 
 Build: `docker built -t deepdream .`
 Run: `docker run -it -v $HOME/deepdream:deepdream deepdream`
