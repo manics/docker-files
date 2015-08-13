@@ -1,12 +1,12 @@
 FROM centos:centos7
 MAINTAINER Simon Li "spli@dundee.ac.uk"
 
-ENV RUNDECK_RELEASE 2.4.2-1.3.GA
+ENV RUNDECK_RELEASE 2.5.3-1.10.GA
 # RUN yum -y install http://rundeck.org/latest.rpm && yum -y install rundeck
-RUN yum -y install java-1.7.0-openjdk && \
+RUN yum -y install java-1.8.0-openjdk && \
 	yum -y install \
-	http://download.rundeck.org/rpm/rundeck-${RUNDECK_RELEASE}.noarch.rpm \
-	http://download.rundeck.org/rpm/rundeck-config-${RUNDECK_RELEASE}.noarch.rpm && \
+	https://dl.bintray.com/rundeck/rundeck-rpm/rundeck-${RUNDECK_RELEASE}.noarch.rpm \
+	https://dl.bintray.com/rundeck/rundeck-rpm/rundeck-config-${RUNDECK_RELEASE}.noarch.rpm && \
 	yum clean all
 
 RUN yum -y install sudo && \
