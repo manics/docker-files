@@ -1,7 +1,7 @@
 FROM centos:centos7
 MAINTAINER Simon Li "spli@dundee.ac.uk"
 
-ENV RUNDECK_RELEASE 2.5.3-1.10.GA
+ENV RUNDECK_RELEASE 2.6.0-1.11.GA
 # RUN yum -y install http://rundeck.org/latest.rpm && yum -y install rundeck
 RUN yum -y install java-1.8.0-openjdk && \
 	yum -y install \
