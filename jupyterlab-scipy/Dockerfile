@@ -6,3 +6,5 @@ MAINTAINER Simon Li "spli@dundee.ac.uk"
 RUN jupyter labextension install jupyterlab-drawio
 # https://github.com/jupyterlab/jupyterlab-github
 RUN jupyter labextension install @jupyterlab/github
+#https://github.com/jupyterlab/jupyter-renderers/tree/master/packages/geojson-extension
+RUN jupyter labextension install @jupyterlab/geojson-extension
